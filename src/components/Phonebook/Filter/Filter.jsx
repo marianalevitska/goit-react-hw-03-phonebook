@@ -2,7 +2,7 @@ import stl from './filter.module.css';
 
 function Filter({ filter, onFilter }) {
     return (
-        <>
+        <div className={stl.form}>
             <label htmlFor='filter' className={stl.label}>Find contacts</label>
             <input
                 value={filter}
@@ -12,7 +12,7 @@ function Filter({ filter, onFilter }) {
                 className={stl.input}
                 onChange={onFilter}
             />
-        </>
+        </div>
     )
 }
 
