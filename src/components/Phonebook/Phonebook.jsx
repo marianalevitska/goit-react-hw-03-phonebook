@@ -30,7 +30,7 @@ class Phonebook extends Component {
 
     componentDidUpdate(prevProps, prevState) {
         const { contacts } = this.state;
-        if (prevState.contacts != contacts) {
+        if (prevState.contacts !== contacts) {
             localStorage.setItem('contacts', JSON.stringify(contacts));
         };
     }
