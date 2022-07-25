@@ -16,6 +16,24 @@ class Phonebook extends Component {
         ],
         filter: ''
     }
+    // get files from local storage
+
+
+    componentDidMount() {
+        const data = localStorage.getItem('contacts');
+        const contacts = JSON.parse(data);
+        if (data?.length) {
+            this.setState({ contacts }); // JSON.parse - convert string to object 
+
+        }
+    }
+
+    componentDidUpdate(prevProps, prevState) {
+        const { contacts } = this.state;
+        if (prevState.contacts != contacts) {
+            localStorage.setItem('contacts', JSON.stringify(contacts));
+        };
+    }
 
     addContacts = ({ name, number }) => {
         // this.setState({ contacts: item.contacts.value })
